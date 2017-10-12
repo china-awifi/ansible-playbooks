@@ -1,0 +1,15 @@
+---
+- name: show mariadb status
+  command: mysql -u root -proot_1 -h localhost -NBe 'show global status where Variable_name in ("Aborted_connects","wsrep_local_state_comment","wsrep_local_state","Com_insert","Com_update","Com_select","Connections","Aborted_connects","Created_tmp_files","Created_tmp_disk_tables","Slow_queries","Select_full_join","Innodb_buffer_pool_write_requests","Innodb_buffer_pool_pages_free");'
+  register: status_result
+- debug: var=status_result.stdout_lines
+
+- name: show mariadb variable
+  command: mysql -u root -proot_1 -h localhost -NBe 'show global variables where variable_name in ("read_only","wsrep_sst_method");'
+  register: variable_result
+- debug: var=variable_result.stdout_lines
+
+- name: show mariadb galera cluster info
+  command: mysql -u root -proot_1 -h localhost -NBe 'show global status like "%wsrep_cluster%";'
+  register: galera_result
+- debug: var=galera_result.stdout_lines

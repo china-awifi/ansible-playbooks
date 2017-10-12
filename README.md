@@ -1,6 +1,10 @@
 #Project Ansible [![Build Status](https://travis-ci.org/adithyakhamithkar/ansible-playbooks.svg?branch=master)](https://travis-ci.org/adithyakhamithkar/ansible-playbooks)
 This is my pet project writing ansible playbooks. If you like my work please share your feedback and send me a Tip from [Instamojo](https://www.instamojo.com/@adithyakhamithkar) for send me Bitcoins @ `13iVZiQCQvsZZPwChd22rLnr7kappN2HpN`
 
+# useage:
+`ansible-playbook -i inventory/inventory.cfg -e "inventory=db" ping.yml --list-hosts`
+`ansible-playbook -i inventory/inventory.cfg -e "inventory=db" ping.yml -C`
+
 ##Index
 + AWS
     - assign-eip
